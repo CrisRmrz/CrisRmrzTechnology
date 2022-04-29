@@ -1,0 +1,509 @@
+@font-face {
+    font-family: "WebSymbolsRegular";
+    src: url("/CrisRmrzTechnology/Fonts/websymbols-regular-webfont.eot");
+    src: url("/CrisRmrzTechnology/Fonts/websymbols-regular-webfont.eot?#iefix") format('embedded-opentype'),
+        url("/CrisRmrzTechnology/Fonts/websymbols-regular-webfont.woff") format('woff'),
+        url('/CrisRmrzTechnology/Fonts/websymbols-regular-webfont.ttf') format('truetype'),
+        url('/CrisRmrzTechnology/Fonts/websymbols-regular-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$celeste : #37BCF9;
+
+@mixin responsive($media){
+    @media screen and (max-width: $media){
+        @content
+    }
+};
+
+@keyframes showText{
+    0%{
+       transform: translateX(-300%) scale(2,2);
+       opacity: 1;
+    }
+    50%{
+        transform: translateX(300%) scale(2,2);
+        opacity: 1;
+    }
+    75%{
+        transform: translateX(-300%) scale(2,2);
+        text-shadow: none;
+        color: transparent;
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%) scale(1,1);
+        opacity: 1;
+    }
+}
+
+@keyframes backBanner{
+    0%{
+       background-position: 0px 0px;
+    }
+    100%{
+        background-position: -50px -200px;
+    }
+}
+
+@keyframes deg {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes up_down {
+    
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-70px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+@keyframes to_right {
+    
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(150px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+
+}
+
+@keyframes logo-animation {
+    
+    0%{
+        transform: rotate(0deg);
+    }
+    33%{
+        transform: rotate(20deg);
+    }
+    66%{
+        transform: rotate(-20deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+
+}
+
+@keyframes updown-tarjetas {
+    
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-350px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+@keyframes rgb {
+    
+    0%{
+        box-shadow: 0px 0px 10px red;
+    }
+    50%{
+        box-shadow: 0px 0px 10px green;
+    }
+    100%{
+        box-shadow: 0px 0px 10px blue;
+    }
+
+}
+
+@keyframes up_down-cartas {
+    
+    0%{
+        transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(-10px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    75%{
+        transform: translateY(10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Playfair Display', serif;
+}
+
+.icon{
+    font-family: "WebSymbolsRegular";
+}
+
+body{
+    background-color: black;
+}
+
+//INICIO DEL NAV
+
+#nav-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: black;
+
+    @include responsive(870px){
+        flex-direction: column;
+    }
+
+    #blog-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        padding-right: 40px;
+        padding-left: 40px;
+        cursor: pointer;
+        list-style: none;
+        background-color: $celeste;
+        overflow: hidden;
+        box-shadow: 1px 1px 10px gray;
+        border: 3px solid rgb(105, 101, 101);
+
+        @include responsive(1310px){
+            padding: 15px;
+        }
+        @include responsive(870px){
+            margin-bottom: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        &:hover{
+            background-color: gray;
+        }
+        &:hover span{
+            animation: up_down 800ms linear calc(1);
+        }
+        &:hover h3{
+            animation: to_right 800ms linear calc(1);
+        }
+        span{
+            color: white;
+            font-size: 30px;
+            margin-right: 20px;
+            animation: deg 2s linear infinite;
+
+            @include responsive(1310px){
+                font-size: 25px;
+                margin-right: 10px;
+            }
+            @include responsive(870px){
+                font-size: 30px;
+            }
+
+        }
+        h3{
+            color: white;
+            font-size: 30px;
+            font-weight: bolder;
+
+            @include responsive(1310px){
+                font-size: 25px;
+            }
+            @include responsive(870px){
+                font-size: 30px;
+            }
+        }
+    }
+
+    img{
+        width: 250px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        cursor: pointer;
+
+        &:hover{
+            animation: logo-animation 2s linear calc(1);
+        }
+
+        @include responsive(1310px){
+            width: 180px;
+        }
+        @include responsive(1210px){
+            width: 150px;
+        }
+        @include responsive(870px){
+            width: 300px;
+        }
+    }
+
+    ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+
+        @include responsive(870px){
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        @media screen and (max-width: 765px) {
+            flex-direction: column;
+        }
+        li{
+            
+            margin-left: 10px;
+            margin-right: 10px;
+
+            @media screen and (max-width: 765px) {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+
+            &:hover{
+                transition: all 100ms;
+                text-decoration: underline;
+                transform: scale(1.1 , 1.1);
+                text-shadow: 2px 2px 10px gray;
+            }
+
+            a{
+                text-decoration: none;
+                font-size: 25px;
+                font-weight: bolder;
+                color: white;
+
+                @include responsive(1310px){
+                    font-size: 20px;
+                }
+                @include responsive(1020px){
+                    font-size: 15px;
+                }
+                @include responsive(870px){
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+
+}
+
+#main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url(/CrisRmrzTechnology/IMG/pattern.png);
+    background-color: white;
+    margin: 0px auto;
+    width: 95%;
+}
+
+#banner{
+    background-image: url(/CrisRmrzTechnology/IMG/bakbaner.png);
+    width: 70%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 5px solid white;
+    box-shadow: 0px 0px 10px gray;
+
+    animation: backBanner 6s linear calc(1);
+
+    h1{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 50px;
+        font-weight: bolder;
+        color: white;
+        text-shadow: 3px 3px 15px black;
+        letter-spacing: 2px;
+
+        animation: showText 6s linear calc(1);
+
+        @media screen and (max-width: 1000px) {
+            font-size: 35px;
+            animation: none;
+        }
+        @media screen and (max-width: 400px) {
+            font-size: 25px;
+        }
+    }
+
+    p{
+        color: white;
+        font-size: 30px;
+        text-shadow: 3px 3px 15px black;
+        letter-spacing: 2px;
+        text-align: center;
+        padding-left: 30px;
+        padding-right: 30px;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 1000px) {
+            font-size: 20px;
+        }
+        @media screen and (max-width: 400px) {
+            font-size: 15px;
+        }
+    }
+
+}
+
+//INICIO DE LAS TARJETAS Y SERVICIOS
+#wrap-servicios{
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    h2{
+        text-align: center;
+        font-size: 45px;
+        text-shadow: 2px 5px 5px gray;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    .flechas{
+        font-size: 25px;
+        display: block;
+        width: 40px;
+        transform: rotate(90deg);
+        margin: 0px auto;
+        text-shadow: 1px 1px 3px black;
+    }
+    #wrap-cartas{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .carta{
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+            flex-basis: 220px;
+
+            height: 400px;
+            background-color: white;
+            margin: 20px;
+            border: 5px solid white;
+            box-shadow: 2px 2px 5px gray;
+            padding: 20px;
+            margin-bottom: 40px;
+            overflow: hidden;
+
+            &:hover{
+                transition: all 1s;
+                background-color: $celeste;
+                animation: rgb 2s linear infinite;
+            }
+            &:hover h3{
+                animation: updown-tarjetas 500ms linear calc(1);
+            }
+            &:hover p{
+                animation: updown-tarjetas 500ms linear calc(1);
+            }
+            &:hover a{
+                visibility: visible;
+            }
+            span{
+                font-size: 50px;
+                margin-bottom: 20px;
+            }
+            h3{
+                font-size: 25px;
+                text-align: center;
+                margin-bottom: 20px;
+                text-shadow: 1px 1px 2px gray;
+            }
+            p{
+                text-align: center;
+                font-size: 17px;
+                font-weight: bold;
+                letter-spacing: 1px;
+                text-shadow: 0px 0px 2px black;
+            }
+            a{
+                margin-top: 25px;
+                text-decoration: none;
+                background-color: black;
+                color: white;
+                padding: 10px;
+                border: 2px solid gray;
+                visibility: hidden;
+                &:hover{
+                    transition: all 300ms;
+                    border-radius: 20px;
+                    transform: scale(1.1 , 1.1);
+                }
+            }
+        }
+
+    }
+
+}
+//LO MISMO DE TARJETAS PERO ANIMANDO LOS ICONOS
+
+.carta:hover:nth-child(3) span {
+    animation: deg 2s linear infinite;
+}
+
+.carta:hover:nth-child(1) span {
+    animation: up_down-cartas 2s linear infinite;
+}
+.carta:hover:nth-child(2) span {
+    animation: up_down-cartas 2s linear infinite;
+}
+.carta:hover:nth-child(4) span {
+    animation: up_down-cartas 2s linear infinite;
+}
+.carta:hover:nth-child(5) span {
+    animation: up_down-cartas 2s linear infinite;
+}
+
+footer{
+    h3{
+        margin: 0px auto;
+        color: white;
+        text-align: center;
+        font-size: 30px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        @media screen and (max-width: 400px) {
+            font-size: 22px;
+        }
+    }
+    
+}
